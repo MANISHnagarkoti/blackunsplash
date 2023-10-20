@@ -36,7 +36,7 @@ const Popsliderup = ({ open, setopen, imginfo, loading }) => {
             <ion-icon name="close-outline" className='text-white  ' style={{ margin: "10px 0px 0px 10px", fontSize: "30px", cursor: "pointer" }} onClick={() => setopen(false)} ></ion-icon>
 
 
-            <div className={open ? 'mt-[10px]  w-full h-[93%] p-3  bottom-0   rounded-t-3xl   translate-y-0  absolute' : ' translate-y-[200px]  '} style={{ zIndex: "999", transition: " 0.4s ", overflowY: "scroll", backgroundColor: "rgb(15,15,15)" }} >
+            <div className={open ? 'mt-[10px]  w-full h-[93%] p-3  bottom-0    rounded-t-3xl   translate-y-0  absolute' : ' translate-y-[200px]  '} style={{ zIndex: "999", transition: " 0.4s ", overflowY: "scroll", backgroundColor: "rgb(15,15,15)" }} >
 
 
 
