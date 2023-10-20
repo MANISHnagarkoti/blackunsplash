@@ -13,11 +13,11 @@ input {
 
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 5px;
 
-}
+
+
+
+
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -34,4 +34,14 @@ input {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+
+@media (min-width:400px){
+
+::-webkit-scrollbar {
+width:10px ;
+
+}
+
 }
