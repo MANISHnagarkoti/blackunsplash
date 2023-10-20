@@ -1,0 +1,37 @@
+body {
+
+    background-color: rgba(15, 15, 15);
+    -webkit-font-smoothing: antialiased;
+    color: white;
+}
+
+
+input {
+
+    color: black;
+    background: none;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #313131;
+    border-radius: 100px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
