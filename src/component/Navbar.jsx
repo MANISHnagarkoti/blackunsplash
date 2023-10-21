@@ -63,7 +63,7 @@ const Navbar = () => {
           </form>
 
 
-          <Link reloadDocument to={`/search/${value}`}> myapp.com </Link>
+   
 
         </div>
 
