@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Popsliderup from './Popsliderup'
+import Popsliderup from '../component/Popsliderup'
 import "../loader css/laoder.css"
+import { useParams } from 'react-router-dom';
 
-const Getphoto = () => {
+const SearchPage = () => {
 
     const [photo, setphoto] = useState([])
 
@@ -12,20 +13,13 @@ const Getphoto = () => {
 
     const [open, setopen] = useState(false)
 
-
     const [singlepicloading, setsinglepicloading] = useState(true)
-
-
 
     const [page, setPage] = useState(1)
 
-
     const [loadMoreLoading, setloadMoreLoading] = useState(false)
 
-
-
-
-
+    let { query } = useParams();
 
 
 
@@ -36,7 +30,7 @@ const Getphoto = () => {
 
         setloadMoreLoading(true)
 
-        const { data } = await axios.get(`https://api.unsplash.com/photos?page=${page}&per_page=9`,
+        const { data } = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&per_page=9&page=${page}`,
 
 
             {
@@ -49,7 +43,9 @@ const Getphoto = () => {
 
         )
 
-        setphoto((prev) => [...prev, ...data])
+        console.log(data)
+
+        setphoto((prev) => [...prev, ...data.results])
 
         setloadMoreLoading(false)
 
@@ -59,7 +55,7 @@ const Getphoto = () => {
 
         getPhotos()
 
-    }, [page])
+    }, [page, query])
 
 
 
@@ -102,10 +98,10 @@ const Getphoto = () => {
     }
 
 
-    console.log(photo)
+
+
 
     return (
-
 
         <div className='mt-[100px]'>
 
@@ -194,7 +190,7 @@ const Getphoto = () => {
 
                         <div className='flex justify-center'>
 
-                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                         </div>
                         :
 
@@ -216,4 +212,4 @@ const Getphoto = () => {
     )
 }
 
-export default Getphoto
+export default SearchPage

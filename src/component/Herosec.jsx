@@ -7,6 +7,9 @@ const Herosec = () => {
 
     const [photo, setphoto] = useState({})
 
+    const [search, setSearch] = useState("")
+
+
     const getRandomPhotos = async () => {
 
         const { data } = await axios.get(`https://api.unsplash.com/photos/random?orientation=landscape`,
@@ -35,7 +38,38 @@ const Herosec = () => {
 
 
 
+    const getSearch = async () => {
 
+        const { data } = await axios.get(`https://api.unsplash.com/search/collections?query=car`,
+
+
+            {
+                headers: {
+                    "Authorization": `Client-ID ${import.meta.env.VITE_Client_ID}`,
+
+                }
+            }
+
+
+        )
+
+        console.log(data)
+
+
+    }
+
+
+
+
+
+    const searchFunc = (e) => {
+
+
+        setSearch(e.target.value)
+
+        getSearch()
+
+    }
 
 
     return (
@@ -55,17 +89,10 @@ const Herosec = () => {
 
 
 
-                    <div className='text-white font-bold text-2xl md:text-4xl'>Trusted Over Millions of users</div>
+                    <div className='text-white font-bold text-2xl md:text-6xl '>Trusted Over Millions of users</div>
 
-                    <div className='text-white  text-md md:text-lg mt-2'>Get photos in everything , we provide you Img</div>
+                    <div className='text-white  text-md md:text-2xl mt-2'>Get photos in everything , we provide you Img</div>
 
-                    <div className='flex items-center mt-3 justify-center gap-x-4 rounded-full bg-gray-200 border-gray-300 border-2 py-3 px-6  w-[100%]  md:w-[600px]  '   >
-
-
-                        <ion-icon name="search-outline" style={{ fontSize: "20px", color: "black" }}></ion-icon> <input type="text" name="" className=' outline-none w-full h-full ' placeholder='Search Images' id="" />
-
-
-                    </div>
 
 
                 </div>
